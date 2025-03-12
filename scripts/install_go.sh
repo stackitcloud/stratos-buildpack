@@ -20,7 +20,7 @@ if [ ! -f ${DOWNLOAD_FILE} ]; then
 
   echo "-----> Download go ${GO_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o ${DOWNLOAD_FILE}
-
+fi
 
 if [ ! -f $GoInstallDir/go/bin/go ]; then
   tar xzf ${DOWNLOAD_FILE} -C $GoInstallDir
