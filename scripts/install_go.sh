@@ -2,6 +2,7 @@
 set -euo pipefail
 
 GO_VERSION="1.24.1"
+ARC="linux-amd64"
 
 DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}
@@ -14,10 +15,7 @@ mkdir -p $GoInstallDir
 if [ ! -f ${DOWNLOAD_FILE} ]; then
   # Delete any cached go downloads, since those are now out of date
   rm -rf ${DOWNLOAD_FOLDER}/go*.tar.gz
-
-  GO_SHA256="cb2396bae64183cdccf81a9a6df0aea3bce9511fc21469fb89a0c00470088073"
-  URL=https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz
-
+  URL=https://dl.google.com/go/go${GO_VERSION}.${ARC}.tar.gz
   echo "-----> Download go ${GO_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o ${DOWNLOAD_FILE}
 fi
