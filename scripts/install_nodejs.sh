@@ -7,7 +7,7 @@ DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}
 DOWNLOAD_FILE=${DOWNLOAD_FOLDER}/node${NODE_VERSION}.tar.gz
 
-export NodeInstallDir="/tmp/node-v${NODE_VERSION}-linux-x64/node-v${NODE_VERSION}-linux-x64/bin"
+export NodeInstallDir="/tmp/node-v${NODE_VERSION}-linux-x64/node-v${NODE_VERSION}-linux-x64"
 
 mkdir -p $NodeInstallDir
 
