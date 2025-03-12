@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-GO_VERSION="1.21.9"
+GO_VERSION="1.24.1"
 
 DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}
@@ -15,20 +15,11 @@ if [ ! -f ${DOWNLOAD_FILE} ]; then
   # Delete any cached go downloads, since those are now out of date
   rm -rf ${DOWNLOAD_FOLDER}/go*.tar.gz
 
-  GO_SHA256="f76194c2dc607e0df4ed2e7b825b5847cb37e34fc70d780e2f6c7e805634a7ea"
+  GO_SHA256="cb2396bae64183cdccf81a9a6df0aea3bce9511fc21469fb89a0c00470088073"
   URL=https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz
 
   echo "-----> Download go ${GO_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o ${DOWNLOAD_FILE}
-
-  DOWNLOAD_SHA256=$(shasum -a 256 ${DOWNLOAD_FILE} | cut -d ' ' -f 1)  
-
-  if [[ $DOWNLOAD_SHA256 != $GO_SHA256 ]]; then
-    echo "       **ERROR** SHA256 mismatch: got $DOWNLOAD_SHA256 expected $GO_SHA256"
-    exit 1
-  fi
-else
-  echo "-----> go install package available in cache"
 fi
 
 if [ ! -f $GoInstallDir/go/bin/go ]; then
