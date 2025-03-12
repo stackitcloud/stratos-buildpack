@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-NODE_VERSION="20.12.2"
+NODE_VERSION="22.14.0"
 
 DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}

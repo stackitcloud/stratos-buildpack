@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-GO_VERSION="1.21.9"
+GO_VERSION="1.24.1"
 
 DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}
