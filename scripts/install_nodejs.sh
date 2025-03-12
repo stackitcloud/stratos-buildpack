@@ -20,7 +20,7 @@ if [ ! -f ${DOWNLOAD_FILE} ]; then
   URL=https://nodejs.org/download/release/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz
   echo "-----> Download Nodejs ${NODE_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o ${DOWNLOAD_FILE}
-
+fi
 
 echo "Downloaded NodeJS package OK"
 
