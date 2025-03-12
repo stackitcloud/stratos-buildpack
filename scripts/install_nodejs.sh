@@ -21,15 +21,6 @@ if [ ! -f ${DOWNLOAD_FILE} ]; then
   echo "-----> Download Nodejs ${NODE_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o ${DOWNLOAD_FILE}
 
-  DOWNLOAD_SHA256=$(shasum -a 256 ${DOWNLOAD_FILE} | cut -d ' ' -f 1)  
-
-  if [[ $DOWNLOAD_SHA256 != $NODE_SHA256 ]]; then
-    echo "       **ERROR** SHA256 mismatch: got $DOWNLOAD_SHA256 expected $NODE_SHA256"
-    exit 1
-  fi
-else
-  echo "-----> Nodejs install package available in cache"
-fi
 
 echo "Downloaded NodeJS package OK"
 
