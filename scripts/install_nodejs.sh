@@ -6,10 +6,10 @@ NODE_VERSION="22.14.0"
 DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}
 DOWNLOAD_FILE=${DOWNLOAD_FOLDER}/node${NODE_VERSION}.tar.gz
+NODE_EXTRACT_DIR="/tmp/node-v${NODE_VERSION}"
+export NodeInstallDir="${NODE_EXTRACT_DIR}/node-v${NODE_VERSION}-linux-x64"
 
-export NodeInstallDir="/tmp/node-v${NODE_VERSION}-linux-x64/node-v${NODE_VERSION}-linux-x64"
-
-mkdir -p $NodeInstallDir
+mkdir -p $NODE_EXTRACT_DIR
 
 # Download the archive if we do not have it cached
 if [ ! -f ${DOWNLOAD_FILE} ]; then
@@ -25,7 +25,7 @@ fi
 echo "Downloaded NodeJS package OK"
 
 if [ ! -f $NodeInstallDir/bin/node ]; then
-  tar xzf ${DOWNLOAD_FILE} -C $NodeInstallDir
+  tar xzf ${DOWNLOAD_FILE} -C $NODE_EXTRACT_DIR
 fi
 
 echo "Unpacked NodeJS package OK"
