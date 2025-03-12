@@ -16,8 +16,8 @@ if [ ! -f ${DOWNLOAD_FILE} ]; then
   # Delete any cached node downloads, since those are now out of date
   rm -rf ${DOWNLOAD_FOLDER}/node*.tar.gz
 
-  NODE_SHA256="5cb4015947e04cfe78f363af2fd7ace9079261f8445cc9d68f855bae94f10b9d"
-  URL=https://buildpacks.cloudfoundry.org/dependencies/node/node_20.11.1_linux_x64_cflinuxfs4_5cb40159.tgz
+  NODE_SHA256="9d942932535988091034dc94cc5f42b6dc8784d6366df3a36c4c9ccb3996f0c2"
+  URL=https://nodejs.org/download/release/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz
   echo "-----> Download Nodejs ${NODE_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o ${DOWNLOAD_FILE}
 
